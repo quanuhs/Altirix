@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+Настройка
+
+{% endblock %}
+
+{% block content %}
+
+
+<h4>Изменение настроек расчёта рейтинга</h4>
+<h5>Внимание: изменения происходят внутри текущей сессии</h5>
+
+<div class="my-2">
+s_coef: {{counting_data["s_coef"]}}<br>
+u_coef: {{counting_data["u_coef"]}}<br>
+
+Время нижнее (t0): {{counting_data["time_lower"]}}<br>
+Время верхнее (t1): {{counting_data["time_higher"]}}<br>
+</div>
+
+
+<form action="{{ url_for('change_settings') }}" method="POST" class="mb-5">
+  <div class="row row-cols-2">
+
+    <div class="col text-center">
+      {{form["s_coef"].label()}}
+      {{form["s_coef"](class="form-control")}}
+    </div>
+
+    <div class="col text-center">
+      {{form["u_coef"].label()}}
+      {{form["u_coef"](class="form-control")}}
+    </div>
+
+    <div class="col text-center">
+      {{form["time_lower"].label()}}
+      {{form["time_lower"](class="form-control")}}
+    </div>
+
+    <div class="col text-center">
+      {{form["time_higher"].label()}}
+      {{form["time_higher"](class="form-control")}}
+    </div>
+
+    
+  </div>
+
+  <div class="mt-2 d-grid gap-2 d-block">
+      <button type="submit" name="action" value="save" class="btn btn-success">Изменить настройки</button>
+  </div>
+
+</form>
+
+
+{% endblock %}

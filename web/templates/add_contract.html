@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}
+Добавление контракта
+{% endblock %}
+
+{% block content %}
+<form action="{{ url_for('create_contract_page') }}" method="POST">
+<div class="form-group">
+  
+
+  {% if is_dublicated %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+  Прошлый контракт сохранён.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endif %}
+
+  <div class="mb-5">  <h2>Создание контракта</h2> </div>
+
+  <div class = "row row-cols-1 row-cols-sm-3">
+
+    <div class="col">
+      <h5>Владелец</h5>
+      <div class="row-cols-1 mb-2">
+        <div class="col col-auto">
+          {{form["owner"](class="form-control ")}}
+        </div>
+      </div>
+
+      <div class = "row align-items-center">
+
+        <div class="col text-center">
+        {{form["owner_rate_tenant"].label(class="text-center")}}
+        {{form["owner_rate_tenant"](class="form-control")}}
+        </div>
+      
+        <div class="col text-center">
+        {{form["owner_rate_provider"].label()}}
+        {{form["owner_rate_provider"](class="form-control")}}
+        </div>
+      
+      </div>
+
+    </div>
+
+    
+    <div class="col">
+      <h5>Арендатор</h5>
+
+      <div class="row-cols-1 mb-2">
+        <div class="col col-auto">
+          {{form["tenant"](class="form-control")}}
+        </div>
+      </div>
+
+      <div class = "row align-items-center">
+
+        <div class="col text-center">
+            {{form["tenant_rate_owner"].label()}}
+            {{form["tenant_rate_owner"](class="form-control")}}
+        </div>
+      
+        <div class="col text-center">
+            {{form["tenant_rate_provider"].label()}}
+            {{form["tenant_rate_provider"](class="form-control")}}
+        </div>
+      
+      </div>
+
+    </div>
+
+
+    
+    <div class="col">
+      <h5>Провайдер</h5>
+
+      <div class="row-cols-1 mb-2">
+        <div class="col col-auto">
+          {{form["provider"](class="form-control")}}
+        </div>
+      </div>
+
+      <div class = "row align-items-center">
+
+        <div class="col text-center">
+        {{form["provider_rate_tenant"].label()}}
+        {{form["provider_rate_tenant"](class="form-control")}}
+        </div>
+      
+        <div class="col text-center">
+        {{form["provider_rate_owner"].label()}}
+        {{form["provider_rate_owner"](class="form-control")}}
+        </div>
+      
+      </div>
+
+    </div>
+  
+  </div>
+
+
+  <div class="row row-6 mt-5">
+  <h5>Длительность контракта</h5>
+  <div class="row row-cols-2">
+    <div class="col text-center">
+    {{form["start_date"].label()}}
+    {{form["start_date"](class="form-control")}}
+    </div>
+
+    <div class="col text-center">
+    {{form["end_date"].label()}}
+    {{form["end_date"](class="form-control")}}
+    </div>
+    
+  </div>
+  </div>
+  
+
+<div class="mt-5 d-grid gap-2 d-md-block">
+
+<button type="submit" name="action" value="save" class="btn btn-success">Сохранить</button>
+<button type="submit" name="action" value="save_and_duplicate" class="btn btn-warning">Сохранить и дублировать</button>
+<a type="button" class="btn btn-danger" href="/">Отмена</a>
+</div>
+
+</div>
+</form>
+  
+{% endblock %}
