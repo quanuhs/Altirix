@@ -14,32 +14,31 @@ def useres():
 contract_rate_choices = [(5, "🌞🌞🌞🌞🌞"), (4, "🌞🌞🌞🌞🌚"), (3, "🌞🌞🌞🌚🌚"), (2, '🌞🌞🌚🌚🌚'), (1, '🌞🌚🌚🌚🌚'), (0, '🌚🌚🌚🌚🌚')]
 
 class ContractForm(Form):
-  name = StringField('Название')
-  owner = QuerySelectField('Владелец', query_factory=useres, validators=[InputRequired()])
-  tenant = QuerySelectField('Арендатор', query_factory=useres, validators=[InputRequired()])
-  provider = QuerySelectField('Провайдер', query_factory=useres, validators=[InputRequired()])
+  name = StringField('Title')
+  owner = QuerySelectField('Owner', query_factory=useres, validators=[InputRequired()])
+  tenant = QuerySelectField('Tenant', query_factory=useres, validators=[InputRequired()])
+  provider = QuerySelectField('Provider', query_factory=useres, validators=[InputRequired()])
 
-  start_date = DateField("Начало", validators=[InputRequired()])
-  end_date = DateField("Конец", validators=[InputRequired()])
+  start_date = DateField("Start Date", validators=[InputRequired()])
+  end_date = DateField("End Date", validators=[InputRequired()])
 
-  owner_rate_tenant = SelectField("Арендатору", choices=contract_rate_choices, validators=[NumberRange(0, 5), InputRequired()])
-  owner_rate_provider = SelectField("Провайдеру", choices=contract_rate_choices,validators=[NumberRange(0, 5), InputRequired()])
+  owner_rate_tenant = SelectField("Rate Tenant", choices=contract_rate_choices, validators=[NumberRange(0, 5), InputRequired()])
+  owner_rate_provider = SelectField("Rate Provider", choices=contract_rate_choices,validators=[NumberRange(0, 5), InputRequired()])
 
-  tenant_rate_owner = SelectField("Владельцу", choices=contract_rate_choices, validators=[NumberRange(0, 5), InputRequired()])
-  tenant_rate_provider = SelectField("Провайдеру", choices=contract_rate_choices, validators=[NumberRange(0, 5), InputRequired()])
+  tenant_rate_owner = SelectField("Rate Owner", choices=contract_rate_choices, validators=[NumberRange(0, 5), InputRequired()])
+  tenant_rate_provider = SelectField("Rate Provider", choices=contract_rate_choices, validators=[NumberRange(0, 5), InputRequired()])
 
-  provider_rate_tenant = SelectField("Арендатору",choices=contract_rate_choices,  validators=[NumberRange(0, 5), InputRequired()])
-  provider_rate_owner = SelectField("Владельцу",choices=contract_rate_choices,  validators=[NumberRange(0, 5), InputRequired()])
+  provider_rate_tenant = SelectField("Rate Tenant",choices=contract_rate_choices,  validators=[NumberRange(0, 5), InputRequired()])
+  provider_rate_owner = SelectField("Rate Provider",choices=contract_rate_choices,  validators=[NumberRange(0, 5), InputRequired()])
 
   
 
 class UserForm(Form):
-  name = StringField('Имя пользователя', validators=[InputRequired()])
+  name = StringField('User name', validators=[InputRequired()])
 
 
 class CalculateDataForm(Form):
-
-  s_coef = FloatField("s коэффициент", validators=[InputRequired()])
-  u_coef = FloatField("u коэффициент", validators=[InputRequired()])
-  time_lower = IntegerField("t0 (нижний порог времени)", validators=[InputRequired()])
-  time_higher = IntegerField("t1 (верхний порог времени)", validators=[InputRequired()])
+  s_coef = FloatField("s coefficient", validators=[InputRequired()])
+  u_coef = FloatField("u coefficient", validators=[InputRequired()])
+  time_lower = IntegerField("Time lower bound (t0)", validators=[InputRequired()])
+  time_higher = IntegerField("Time heigher bound (t1)", validators=[InputRequired()])
