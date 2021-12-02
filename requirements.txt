@@ -1,0 +1,6 @@
+Flask-Cors
+SQLAlchemy
+WTForms
+WTForms-SQLAlchemy
+Flask
+Flask-Admin
