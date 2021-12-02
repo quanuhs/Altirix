@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Главная страница
+Main Page
 
 {% endblock %}
 
@@ -9,20 +9,20 @@
 
 {% if is_error %}
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-Произошла ошибка: {{is_error}}
+Error: {{is_error}}
 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 {% endif %}
 
 <div class="my-2">
-s_coef: {{counting_data["s_coef"]}}<br>
-u_coef: {{counting_data["u_coef"]}}<br>
+s coefficient: {{counting_data["s_coef"]}}<br>
+u coefficient: {{counting_data["u_coef"]}}<br>
 
-Время нижнее (t0): {{counting_data["time_lower"]}}<br>
-Время верхнее (t1): {{counting_data["time_higher"]}}<br>
+Time lower bound (t0): {{counting_data["time_lower"]}}<br>
+Time heigher bound (t1): {{counting_data["time_higher"]}}<br>
 </div>
 
-<h3>Пользователи</h3>
+<h3>Users</h3>
 <div class="row">
 {% for user in users %}
 <a href="/user/{{ user.id }}">{{user.name}}</a>

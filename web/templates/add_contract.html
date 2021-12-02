@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Добавление контракта
+Creating Contract
 {% endblock %}
 
 {% block content %}
@@ -11,17 +11,17 @@
 
   {% if is_dublicated %}
   <div class="alert alert-success alert-dismissible fade show" role="alert">
-  Прошлый контракт сохранён.
+  Last contract saved.
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
   {% endif %}
 
-  <div class="mb-5">  <h2>Создание контракта</h2> </div>
+  <div class="mb-5">  <h2>Contract Creation</h2> </div>
 
   <div class = "row row-cols-1 row-cols-sm-3">
 
     <div class="col">
-      <h5>Владелец</h5>
+      <h5>Owner</h5>
       <div class="row-cols-1 mb-2">
         <div class="col col-auto">
           {{form["owner"](class="form-control ")}}
@@ -46,7 +46,7 @@
 
     
     <div class="col">
-      <h5>Арендатор</h5>
+      <h5>Tenant</h5>
 
       <div class="row-cols-1 mb-2">
         <div class="col col-auto">
@@ -73,7 +73,7 @@
 
     
     <div class="col">
-      <h5>Провайдер</h5>
+      <h5>Provider</h5>
 
       <div class="row-cols-1 mb-2">
         <div class="col col-auto">
@@ -101,7 +101,7 @@
 
 
   <div class="row row-6 mt-5">
-  <h5>Длительность контракта</h5>
+  <h5>Contract Duration</h5>
   <div class="row row-cols-2">
     <div class="col text-center">
     {{form["start_date"].label()}}
@@ -119,9 +119,9 @@
 
 <div class="mt-5 d-grid gap-2 d-md-block">
 
-<button type="submit" name="action" value="save" class="btn btn-success">Сохранить</button>
-<button type="submit" name="action" value="save_and_duplicate" class="btn btn-warning">Сохранить и дублировать</button>
-<a type="button" class="btn btn-danger" href="/">Отмена</a>
+<button type="submit" name="action" value="save" class="btn btn-success">Save</button>
+<button type="submit" name="action" value="save_and_duplicate" class="btn btn-warning">Save and Duplicate</button>
+<a type="button" class="btn btn-danger" href="/">Cancel</a>
 </div>
 
 </div>
