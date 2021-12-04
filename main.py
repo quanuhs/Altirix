@@ -152,4 +152,4 @@ if __name__ == '__main__':
     if not db_is_created:
       create_db()
     
-    app.run(host=config.HOST_ADDRESS, port=config.HOST_PORT)
+    app.run(host=config.HOST_ADDRESS, port=config.HOST_PORT, ssl_context=('/etc/letsencrypt/live/twinsharing.com/fullchain.pem', '/etc/letsencrypt/live/twinsharing.com/privkey.pem'))
